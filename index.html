@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" 
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?
+    family=Poppins:wght@400;600&family=Roboto+Mono&
+    display=swap" rel="Stylesheet">
+
+    <!-- Stylesheet-->
+    <link rel="Stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="music-player">
+        <button id="playlistBtn">
+            <i class="fa-solid fa-angle-down"></i>
+        </button>
+        
+        <!-- Album cover -->
+        <img id="song-image" src="images/the-satanist.png">
+
+        <!-- Song details -->
+        <div class="song-detail">
+            <p id="song-name">Ben Sahar</p>
+            <p id="song-artist">Behemoth</p>
+        </div>
+
+        <!-- Controls -->
+        <div class="player-options">
+            <button id="shuffleBtn">
+                <i class="fa-solid fa-shuffle"></i>
+            </button>
+            <button id="prevBtn">
+                <i class="fa-solid fa-backward-step"></i>
+            </button>
+            <button id="playBtn">
+                <i class="fa-solid fa-play"></i>
+            </button>
+            <button id="pauseBtn" class="hide">
+                <i class="fa-solid fa-pause"></i>
+            </button>
+            <button id="nextBtn">
+                <i class="fa-solid fa-forward-step"></i>
+            </button>
+            <button id="repeatBtn">
+                <i class="fa-solid fa-repeat"></i>
+            </button>
+        </div>
+
+        <audio id="audio" preload="metadata"></audio>
+        <div id="progress-bar">
+            <div id="current-progress"></div>
+        </div>
+        <div class="time-container">
+            <span id="current-time">0:00</span>
+            <span id="total-time">5:35</span>
+        </div>
+        <div id="playlist-container" class="hide">
+            <button id="close-btn">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <ul id="playlist-songs"></ul>
+        </div>
+    </div>
+
+    <!-- Script -->
+    <script src="script.js"></script>
+</body>
+</html>
