@@ -153,6 +153,11 @@ const nextSong = () => {
     }
 };
 
+// Play next song when actual song ends
+audio.onended = () => {
+    nextSong();
+}
+
 // Play previous song
 const prevSong = () => {
     if (index > 0) {
@@ -163,7 +168,21 @@ const prevSong = () => {
         index = songsArray.length - 1;
     }
     setSong(index);
+    playSong();
 }
+
+// Shuffle mode
+shuffle.addEventListener("click", () => {
+    if (shuffleBtn.classList.contains("active")) {
+        shuffleBtn.classList.remove("active");
+        loop = true;
+        console.log("shuffle off")
+    } else {
+        shuffleBtn.classList.add("active");
+        loop = false;
+        console.log("shuffle on");
+    }
+})
 
 // Play button
 playBtn.addEventListener("click", playSong);
@@ -174,7 +193,7 @@ pauseBtn.addEventListener("click", pauseSong);
 // Play next
 nextBtn.addEventListener("click", nextSong);
 
-// Play next
+// Play previous
 prevBtn.addEventListener("click", prevSong);
 
 window.onload = () => {
