@@ -58,9 +58,8 @@ const songsArray = [{
 // Events 
 let events = {
     mouse: {click: "click"},
-    touch: {click: "touchstart"},
-
-}
+    touch: {click: "touchstart"}
+};
 
 let deviceType = "";
 
@@ -182,7 +181,7 @@ shuffle.addEventListener("click", () => {
         loop = false;
         console.log("shuffle on");
     }
-})
+});
 
 // Play button
 playBtn.addEventListener("click", playSong);
@@ -195,6 +194,28 @@ nextBtn.addEventListener("click", nextSong);
 
 // Play previous
 prevBtn.addEventListener("click", prevSong);
+
+// Progress bar (user clicks on it)
+isTouch();
+progressBar.addEventListener(events[deviceType].click, (event) => {
+    // Start of progress bar
+    let start = progressBar.getBoundingClientRect().left;
+
+    // Click position
+    let end = !isTouch() ? event.clientX : event.touches[0].clientX;
+    let progress = (end - start) / progressBar.offsetWidth;
+
+    // Set width
+    currentProgress.style.width = progress * 100 + "%";
+
+    // Set time
+    audio.currentTime = progress * audio.duration;
+
+    // Play
+    audio.play();
+    pauseBtn.classList.remove("hide");
+    playBtn.classList.add("hide");
+});
 
 window.onload = () => {
     index = 0;  // Load first song
