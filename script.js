@@ -65,7 +65,7 @@ let deviceType = "";
 
 // Detect whether device is touch or not
 const isTouch = () => {
-    try{
+    try {
         // Touch event: will return true ONLY for a touch device.
         document.createEvent("TouchEvent");
         deviceType = "touch";
@@ -103,6 +103,7 @@ const setSong = (index) => {
     audio.onloadedmetadata = () => {
         totalTime.innerText = timeFormat(audio.duration);
     };
+    //playSong();
 };
 
 // Play song
@@ -148,14 +149,9 @@ const nextSong = () => {
         let randIndex = Math.floor(Math.random() * songsArray.length);
         console.log(randIndex);
         setSong(randIndex);
-        playSong;
+        playSong();
     }
 };
-
-// Play next song when actual song ends
-audio.onended = () => {
-    nextSong();
-}
 
 // Play previous song
 const prevSong = () => {
@@ -168,10 +164,15 @@ const prevSong = () => {
     }
     setSong(index);
     playSong();
-}
+};
+
+// Play next song when actual song ends
+audio.onended = () => {
+    nextSong();
+};
 
 // Shuffle mode
-shuffle.addEventListener("click", () => {
+shuffleBtn.addEventListener("click", () => {
     if (shuffleBtn.classList.contains("active")) {
         shuffleBtn.classList.remove("active");
         loop = true;
@@ -217,7 +218,51 @@ progressBar.addEventListener(events[deviceType].click, (event) => {
     playBtn.classList.add("hide");
 });
 
+// Update progress bar
+setInterval(() => {
+    currentTime.innerHTML = timeFormat(audio.currentTime);
+    currentProgress.style.width = (audio.currentTime / audio.duration.toFixed(3)) * 100 + "%";
+})
+
+// Update time
+audio.addEventListener("timeupdate", () => {
+    currentTime.innerText = timeFormat(audio.currentTime);
+});
+
+
+// Playlist is created
+const initializePlaylist = () => {
+    for (let i in songsArray) {
+        playlistSongs.innerHTML += `<li class='playlistSong' onclick='setSong(${i})'>
+            <div class="playlist-image-container">
+                <img src="${songsArray[i].image}">
+            </div>
+            <div class="playlist-song-details">
+                <span id="playlist-song-name">
+                    ${songsArray[i].name}
+                </span>
+                <span id="playlist-song-artist-album">
+                    ${songsArray[i].artist}
+                </span>
+            </div>
+        </li>`;
+    }
+};
+
+// Show playlist
+playlistBtn.addEventListener("click", () => {
+    playlistContainer.classList.remove("hide");
+});
+
+// Hide playlist
+closeBtn.addEventListener("click", () => {
+    playlistContainer.classList.add("hide");
+});
+
 window.onload = () => {
     index = 0;  // Load first song
     setSong(index);
+
+    // Create playlist
+    initializePlaylist();
 };

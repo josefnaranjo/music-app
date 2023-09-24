@@ -73,10 +73,23 @@ img {
     color: black;
     font-size: 1.4em;
 }
+#prevBtn:active {
+    color: ghostwhite;
+}
+#nextBtn:active {
+    color: ghostwhite;
+}
 #shuffleBtn, #repeatBtn {
-    color: lightgray;
+    color: black;
     font-size: 1em;
 }
+#shuffleBtn:active {
+    color: ghostwhite;
+}
+#repeatBtn:active {
+    color: ghostwhite;
+}
+
 .hide {
     display: none;
 }
@@ -107,4 +120,63 @@ img {
     align-items: center;
     justify-content: space-between;
     font-family: "Roboto Mono", monospace;
+}
+
+#playlist-container {
+    background-color: dimgray;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    border-radius: 0.5em;
+    padding: 2em 1em;
+    font-family: "Poppins", sans-serif;
+}
+
+#close-btn {
+    background-color: transparent;
+    border: none;
+    height: 2em;
+    width: 2em;
+    cursor: pointer;
+    margin-left: 90%;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li {
+    display: flex;
+    align-items: center;
+    margin: 1em 0;
+    cursor: pointer;
+}
+
+.playlist-song-details {
+    margin-left: 1em;
+}
+
+.playlist-song-details > span {
+    display: block;
+}
+
+#playlist-song-artist-album {
+    color: lightgray;
+    font-size: 0.8em;
+}
+
+button.active i {
+    color: ghostwhite;
+}
+@media screen and (max-width: 450px) {
+    .music-player{
+        font-size: 14px;
+    }
+}
+
+.playlist-image-container {
+    width: 3em;
 }
