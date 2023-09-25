@@ -77,9 +77,7 @@ const isTouch = () => {
     }
 };
 
-//console.log(isTouch())
 // Format time: convert from milliseconds to minutes and seconds.
-
 const timeFormat = (time) => {
     let minute = Math.floor(time / 60);
     minute = minute < 10 ? "0" + minute : minute;
@@ -239,7 +237,7 @@ audio.addEventListener("timeupdate", () => {
 // Playlist is created
 const initializePlaylist = () => {
     for (let i in songsArray) {
-        playlistSongs.innerHTML += `<li class='playlistSong' onclick='setSong(${i})'>
+        playlistSongs.innerHTML += `<li class='playlistSong' onclick='setSong(${i}), playSong(${i})'>
             <div class="playlist-image-container">
                 <img src="${songsArray[i].image}">
             </div>
