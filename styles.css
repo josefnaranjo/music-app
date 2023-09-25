@@ -89,7 +89,6 @@ img {
 #repeatBtn:active {
     color: ghostwhite;
 }
-
 .hide {
     display: none;
 }
@@ -179,4 +178,39 @@ button.active i {
 
 .playlist-image-container {
     width: 3em;
+}
+
+.slider_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.volume_slider {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    height: 0.2em;
+    width: 60%;
+    background: gray;
+    -webkit-transition: .2s;
+    transition: .2s;
+}
+.volume_slider::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    height: 0.6em;
+    width: 0.6em;
+    background: ghostwhite;
+    border: 0.2em solid midnightblue;
+    cursor: pointer;
+    border-radius: 100%;
+}
+.volume_slider:hover {
+    opacity: 1.0;
+}
+.fa-volume-down,
+.fa-volume-up {
+    padding: 0.4em;
 }

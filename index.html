@@ -55,6 +55,7 @@
             </button>
         </div>
 
+        <!-- Progress bar, current and total time -->
         <audio id="audio" preload="metadata"></audio>
         <div id="progress-bar">
             <div id="current-progress"></div>
@@ -68,6 +69,14 @@
                 <i class="fa-solid fa-xmark"></i>
             </button>
             <ul id="playlist-songs"></ul>
+        </div>
+
+        <!-- Volume control -->
+        <div class="slider_container">
+            <i class="fa fa-volume-down"></i>
+            <input type="range" min="0" max="100" value="100" 
+            class="volume_slider" onchange="setVolume()">
+            <i class="fa fa-volume-up"></i>
         </div>
     </div>
 

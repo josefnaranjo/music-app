@@ -6,6 +6,7 @@ const nextBtn = document.getElementById("nextBtn");
 const repeatBtn = document.getElementById("repeatBtn");
 const playlistBtn = document.getElementById("playlistBtn");
 const closeBtn = document.getElementById("close-btn");
+const volumeSlider = document.querySelector('.volume_slider');
 
 const audio = document.getElementById("audio");
 const songImg = document.getElementById("song-image");
@@ -183,6 +184,11 @@ shuffleBtn.addEventListener("click", () => {
         console.log("shuffle on");
     }
 });
+
+// Volume control
+function setVolume() {
+    audio.volume = volumeSlider.value / 100;
+}
 
 // Play button
 playBtn.addEventListener("click", playSong);

@@ -1,1 +1,1 @@
-## Music App JavaScript
+## Music App - Modern JavaScript
