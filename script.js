@@ -24,11 +24,12 @@ let index;
 let loop = true;
 
 // Array of songs
-const songsArray = [{
-        name: "Ben Sahar",
-        link: "audio/Ben Sahar.mp3",
-        artist: "Behemoth",
-        image: "images/the-satanist.png",
+const songsArray = [
+    {
+        name: "Burden",
+        link: "audio/Burden.mp3",
+        artist: "Opeth",
+        image: "images/watershed.png", 
     },
     {
         name: "Voice of the Soul (Instrumental)",
@@ -37,10 +38,10 @@ const songsArray = [{
         image: "images/the-sound-of-perseverance.png", 
     },
     {
-        name: "Burden",
-        link: "audio/Burden.mp3",
-        artist: "Opeth",
-        image: "images/watershed.png", 
+        name: "Ben Sahar",
+        link: "audio/Ben Sahar.mp3",
+        artist: "Behemoth",
+        image: "images/the-satanist.png",
     },
     {
         name: "Death Becomes My Light",
